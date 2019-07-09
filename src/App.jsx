@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import TabSort from './components/Tabbar';
 import ChromeTabs from './components/ChromeTabbar';
 import { ThemeProvider } from '@material-ui/styles';
+import Feed from './components/Feed';
 
 const theme = createMuiTheme({
   palette: {
@@ -26,7 +27,7 @@ function App() {
     <div className="App">    
       <Navbar/>
       <TabSort/>
-      <ChromeTabs/>
+      <Feed/>
     </div>
   </ThemeProvider>
   );

@@ -4,6 +4,7 @@ import Color from "color";
 import { makeStyles } from "@material-ui/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Snoo from '../assets/snoo.svg';
 
 const useTabsStyles = makeStyles(() => ({
   indicator: {
@@ -86,11 +87,19 @@ const useTabStyles = makeStyles(({ palette, spacing, breakpoints }) => {
   };
 });
 
+const useLogoStyle = makeStyles(() => ({
+    logo: {
+        width: '4rem'
+    }
+  }));
+
 const ChromeTabs = ({ tabs, tabStyle, tabProps, ...props }) => {
   const tabsClasses = useTabsStyles(props);
   const tabClasses = useTabStyles({ ...tabProps, ...tabStyle });
+  const logoClasses = useLogoStyle();
   return (
     <Tabs {...props} classes={tabsClasses}>
+    <img className={logoClasses.logo} src={Snoo} alt=""/>
       {tabs.map(tab => (
         <Tab key={tab.label} {...tabProps} {...tab} classes={tabClasses} />
       ))}
