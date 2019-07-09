@@ -1,75 +1,39 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import { styled } from '@material-ui/styles';
+import React, { useState } from "react";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import ChromeTabs from "./ChromeTabbar";
 
-function TabContainer(props) {
+const TabSort = () => {
+  const [index, setIndex] = useState(0);
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
+    <AppBar
+      position={"static"}
+      elevation={0}
+      style={{ backgroundColor: "#E6E8EB" }}
+    >
+      <Toolbar>
+        <ChromeTabs
+          style={{ alignSelf: "flex-end" }}
+          tabs={[
+            { label: "Label 1" },
+            { label: "Label 2" },
+            { label: "Label 3" },
+            { label: "Label 4" }
+          ]}
+          tabStyle={{
+            bgColor: "#E6E8EB",
+            selectedBgColor: "#ffffff",
+            color: "rgba(0,0,0,0.87)"
+          }}
+          tabProps={{
+            disableRipple: true
+          }}
+          value={index}
+          onChange={(e, i) => setIndex(i)}
+        />
+      </Toolbar>
+    </AppBar>
   );
-}
-
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1,
-    width: '30rem',
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
-
-const MyTab = styled(Tab)({
-    width: '5rem',
-    fontSize: '.8rem',
-    fontWeight: 'bold',
-    textTransform: 'lowercase',
-    backgroundColor: '#eff7ff',
-    color: '#369',
-})
-
-export default function ScrollableTabsButtonAuto() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  function handleChange(event, newValue) {
-    setValue(newValue);
-  }
-
-  return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-        >
-          <MyTab label="Item One" />
-          <MyTab label="Item Two" />
-          <MyTab label="Item Three" />
-          <MyTab label="Item Four" />
-          <MyTab label="Item Five" />
-          <MyTab label="Item Six" />
-        </Tabs>
-      </AppBar>
-      {value === 0 && <TabContainer>Item One</TabContainer>}
-      {value === 1 && <TabContainer>Item Two</TabContainer>}
-      {value === 2 && <TabContainer>Item Three</TabContainer>}
-      {value === 3 && <TabContainer>Item Four</TabContainer>}
-      {value === 4 && <TabContainer>Item Five</TabContainer>}
-      {value === 5 && <TabContainer>Item Six</TabContainer>}
-      {value === 6 && <TabContainer>Item Seven</TabContainer>}
-    </div>
-  );
-}
+export default TabSort;

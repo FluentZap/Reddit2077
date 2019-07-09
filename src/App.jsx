@@ -4,7 +4,8 @@ import purple from '@material-ui/core/colors/purple';
 import green from '@material-ui/core/colors/green';
 import 'typeface-roboto';
 import Navbar from './components/Navbar';
-import Tabbar from './components/Tabbar';
+import TabSort from './components/Tabbar';
+import ChromeTabs from './components/ChromeTabbar';
 import { ThemeProvider } from '@material-ui/styles';
 
 const theme = createMuiTheme({
@@ -24,7 +25,8 @@ function App() {
   <ThemeProvider theme={theme}>
     <div className="App">    
       <Navbar/>
-      <Tabbar/>
+      <TabSort/>
+      <ChromeTabs/>
     </div>
   </ThemeProvider>
   );
