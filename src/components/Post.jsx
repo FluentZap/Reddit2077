@@ -3,12 +3,21 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import UpArrow from '@material-ui/icons/ArrowUpwardSharp'
-import DownArrow from '@material-ui/icons/ArrowDownwardSharp'
+import UpArrowUnstyled from '@material-ui/icons/ArrowUpwardSharp'
+import DownArrowUnstyled from '@material-ui/icons/ArrowDownwardSharp'
+import { styled } from '@material-ui/styles';
+
+const UpArrow = styled(UpArrowUnstyled)({
+  color: '#c6c6c6'
+});
+
+const DownArrow = styled(DownArrowUnstyled)({
+  color: '#c6c6c6'
+});
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3, 2),
+    padding: 0,
     display: 'flex',
     alignItems: 'center'
   },
@@ -20,7 +29,8 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     padding: '.5rem',
     '& h5': {
-      padding: '.25rem'
+      padding: '.25rem',
+      color: '#c6c6c6'
     }
   },
   voteCounter: {

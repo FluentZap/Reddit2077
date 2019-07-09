@@ -7,8 +7,11 @@ import Tab from "@material-ui/core/Tab";
 import Snoo from '../assets/snoo.svg';
 
 const useTabsStyles = makeStyles(() => ({
+    root: {
+        backgroundColor: '#a9c9ea'
+    },
   indicator: {
-    display: "none"
+    display: "none",    
   }
 }));
 
@@ -89,7 +92,7 @@ const useTabStyles = makeStyles(({ palette, spacing, breakpoints }) => {
 
 const useLogoStyle = makeStyles(() => ({
     logo: {
-        width: '4rem'
+        height: 45
     }
   }));
 

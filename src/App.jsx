@@ -8,6 +8,7 @@ import TabSort from './components/Tabbar';
 import ChromeTabs from './components/ChromeTabbar';
 import { ThemeProvider } from '@material-ui/styles';
 import Feed from './components/Feed';
+import ButtonBar from './components/ButtonTabs';
 
 const theme = createMuiTheme({
   palette: {
@@ -27,10 +28,15 @@ function App() {
     <div className="App">    
       <Navbar/>
       <TabSort/>
-      <Feed/>
+      {/* <ButtonBar /> */}
     </div>
   </ThemeProvider>
   );
 }
 
 export default App;
+//#270140   Dark Purple
+//#1d0259   Dark Blue
+//#0d0126   Deep Purple
+//#04d9d9   Light Blue
+//#f2a97e   Light Tan
