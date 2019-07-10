@@ -32,28 +32,14 @@ export default function Feed() {
     <div>
       {posts.map((newPost, index) =>
         <div>
-          <button onClick={() => setPost(prevState => {   
-            let newState = [...prevState];
-            newState[index].count++;
-            return newState;
-          })}>
-            Upvote
-          </button>
-
-          <button onClick={() => setPost(prevState => {   
-            let newState = [...prevState];
-            newState[index].count--;
-            return newState;
-          })}>
-            Downvote
-          </button>
-
           <Post
             number={newPost.number}
             count={newPost.count}
             title={newPost.title}
             image={newPost.image}
             key={newPost.id}
+            trigger={setPost}
+            index={index}
           />
         </div>
       )};

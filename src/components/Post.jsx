@@ -50,11 +50,19 @@ function Post(props) {
         </Typography>
 
     <div className={classes.voteCounter}>
-        <UpArrow/>
+        <UpArrow onClick={() => props.trigger(prevState => {   
+            let newState = [...prevState];
+            newState[props.index].count++;
+            return newState;
+          })}/>
         <Typography variant='h5' component='h5'>
           {props.count}  
         </Typography>
-        <DownArrow/>
+        <DownArrow onClick={() => props.trigger(prevState => {   
+            let newState = [...prevState];
+            newState[props.index].count--;
+            return newState;
+          })}/>
     </div>
 
         <Typography variant='h5' component='h5'>
